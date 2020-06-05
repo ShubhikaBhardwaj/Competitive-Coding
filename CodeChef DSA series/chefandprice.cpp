@@ -7,32 +7,21 @@ int main()
     cin>>t;
     while(t--)
     {
-       string s;
-       cin>>s;
+      int n,k;
+      cin>>n>>k;
 
-       int n=s.length();
-       int pairs=0;
-       for(int i=0;i<n;i++)
-       {   
-          if(i+1<n)
-           {
-           if(s[i]=='x'&&s[i+1]=='y')
-             {
-                 pairs++;
-                 i++;
-             }
+      int *arr=new int[n];
+      int ans=0;
 
-            else if(s[i]=='y'&&s[i+1]=='x')
-            {
-                pairs++;
-                i++;
-            }
-           
-           }
+      for(int i=0;i<n;i++)
+      {
+          cin>>arr[i];
 
-       }
-
-       cout<<pairs<<endl;
+          if(arr[i]>k)
+          ans+=(arr[i]-k);
+      }
+        
+      cout<<ans<<endl;
 
     }
 
