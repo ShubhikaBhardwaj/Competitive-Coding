@@ -1,29 +1,20 @@
 #include<bits/stdc++.h>
 using  namespace std;
 
-long long calwin(long t,long j)
+int calwin(int t,int j)
 {
-   if(t&1==0 && j&1==0)
+   if(((t&1)==0) && ((j&1)==0))
    {
       return calwin(t/2,j/2);
    }
  
- 
-   else if(t&1==1 && j&1==1)
-   {
-     return 0;   
-   }
-   
-   else if(t&1==0 && j&1==1)
-   {
-       return 0;
-   }
-   
-   else if(t&1==1 && j&1==0)
+   if(((t&1)==1) && ((j&1)==0))
    {
        return 1;
    }
 
+
+  else return 0;
 
 }
 
