@@ -1,56 +1,71 @@
-class Solution {
-public:
+#include<bits/stdc++.h>
+using namespace std;
     struct man
-    {
+    { public:
         int h,n;
     };
+    
+class Solution {
+    public:
 
-    bool compare (man a man b)
-    {
-        return a.h<=b.h;
+    static bool compare(struct man a,struct man b)
+    {int x,y;
+     
+        
+       if(a.h<b.h)
+           return true;
+        return false;
     }
 
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
         
-       vector<man> arr;
+       vector<struct man> arr;
 
        for(int i=0;i<people.size();i++)
        {
-           man m;
-           m.h=arr[i][0];
-           m.n=arr[i][1];
+           struct man m;
+           m.h=people[i][0];
+           m.n=people[i][1];
            arr.push_back(m);
        } 
      
-     sort(m.begin(),m.end());
+     sort(arr.begin(),arr.end(),compare);
      
-     for(int i=0;i<arr.size();i++)
+        //cout<<"HI";
+  //  for(int j=0;j<arr.size();j++)
+      for(int i=0;i<arr.size();i++)
      {
        int steps=arr[i].n;
 
        int k=0;
-       int index=i+1;
+       int index=0;
 
-       while(index<arr.size()&&k<steps)
-       {
-           if(arr[index]>=arr[i])
+       while(index<i&&k<steps)
+       {  if(index>=0)
+           if(arr[index].n<=arr[i].n)
            {
               k++;
            }
            index++;
        }
 
-       man M;
+       // cout<<"HI";
+       struct man M;
        M.h=arr[i].h;
        M.n=arr[i].n;
 
        arr.erase(arr.begin()+i);
 
+         if(index>=0)
        arr.insert(arr.begin()+index,M);
 
+         else
+            arr.push_back(M);
        
+        //cout<<"HI";
 
      }
+        
 
      vector<vector<int>> ans;
        for(int i=0;i<arr.size();i++)
