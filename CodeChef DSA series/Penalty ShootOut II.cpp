@@ -21,30 +21,31 @@ int main()
      {  
          if(i%2==0)  //A shot
          {
-            if(s[i]=='0')
+            if(s[i]=='1')
             curgoalA++;
 
             turnA--;
             maxgoal=max(curgoalA,curgoalB);
             reqgoalA=maxgoal-curgoalA;
-
+            //cout<<reqgoalA<<endl;
             if(reqgoalA>turnA)
             {
                 ans=i;
                 break;
             }
+            
 
          }
 
         else  // B shot
         {
-            if(s[i]=='0')
+            if(s[i]=='1')
             curgoalB++;
 
             turnB--;
             maxgoal=max(curgoalB,curgoalA);
             reqgoalB=maxgoal-curgoalB;
-
+            //cout<<reqgoalB<<endl;
             if(reqgoalB>turnB)
             {
                 ans=i;
@@ -55,7 +56,7 @@ int main()
         
      }
      
-     cout<<ans<<endl;
+     cout<<min(2*n,ans+1)<<endl;
 
     } 
 
