@@ -50,7 +50,7 @@ void sort012(int a[], int n)
             mid++;
         }
 
-        else if(a[high]==2)
+        else if(a[mid]==2)
         {
             swap(a[mid],a[high]);
             high--;
